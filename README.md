@@ -2,5 +2,5 @@
 Repository for team project.
 
 # Team Members:
-Matthew Syrigos/n
+Matthew Syrigos  
 Lily Ichise
