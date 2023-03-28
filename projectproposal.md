@@ -33,5 +33,5 @@ Meet once a week to discuss and update project goals. Tasks will be due on a wee
 # 6 Risks and Limitations:
 The most significant threat to the success of this project is the accuracy of the recommendation system. This feature will require additional research and may require additional data sources or machine learning techniques to improve accuracy.
 
-Additional Course Content:
+# 7 Additional Course Content:
 Additional topics that will be beneficial to this project include data analysis and machine learning, which can be used to improve the accuracy of the recommendation system. Additionally, knowledge of front-end web development can also be helpful to improve the user interface and user experience of the application.
