@@ -9,13 +9,28 @@ To complete this project, I will explore topics in Python such as web developmen
 Minimum Viable Product (MVP) and Stretch Goal:
 The MVP for this project will be a basic web application that allows users to sign up, create profiles, and search for study partners or groups based on course codes. The stretch goal for this project will be to implement a recommendation system that suggests study partners or groups based on users' profiles and preferences.
 
-Project Timeline:
+# 2 Learning Objectives
+Shared goals: advance python skills & create something semi-useful
+
+# 3 Implementation Plan
+Research on some of the topics we mentioned above using python resources listed in the course page as well as ChatGPT, Google searches, Reddit, and StackOverflow.
+
+# 4 Project Timeline:
 Week 1: Research on web development frameworks, database management, and recommendation systems, setup development environment
 Week 2: Implement basic user interface and user authentication, begin database integration
 Week 3: Complete database integration, implement search functionalities, begin incorporating recommendation system
 Week 4: Complete recommendation system and refine search functionalities, final testing and debugging, deploy web application
 
-Risks and Limitations:
+
+# 5 Collaboration Plan
+Assign tasks together and work on them individually, but reconvene for status updates and further task assignment. 
+
+WhatsApp and Slack are applications that both members of the team use and check consistently, which will ensure effective team collaboration. 
+
+Meet once a week to discuss and update project goals. Tasks will be due on a weekly basis. Further communication will be taken as needed.
+
+
+# 6 Risks and Limitations:
 The most significant threat to the success of this project is the accuracy of the recommendation system. This feature will require additional research and may require additional data sources or machine learning techniques to improve accuracy.
 
 Additional Course Content:
