@@ -34,8 +34,8 @@ def index():
     return render_template('index.html', users=users, courses=courses)
 
 
-@app.route('/login', methods=['GET', 'POST'])
-def login():
+@app.route('/profile', methods=['GET', 'POST'])
+def profile():
     if request.method == 'POST':
         name = request.form['name']
         course_code = request.form['course_code']
@@ -46,7 +46,7 @@ def login():
         goal = request.form['goal']
         # do something with the form data
 
-    return render_template('login.html')
+    return render_template('profile.html')
 
 
 if __name__ == '__main__':
