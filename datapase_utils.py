@@ -5,11 +5,11 @@ class StudyGroupDatabase:
         self.db_path = db_path
 
     def connect(self):
-        """Create a connection to the database"""
+        """This function creates a connection to the database"""
         return sqlite3.connect(self.db_path)
 
     def add_user(self, name, email, password):
-        """Add a new user to the database"""
+        """This function adds a new user to the database"""
         connection = self.connect()
         cursor = connection.cursor()
 
@@ -19,7 +19,7 @@ class StudyGroupDatabase:
         connection.close()
 
     def get_user(self, user_id):
-        """Retrieve a user from the database"""
+        """This function retrieves a user from the database"""
         connection = self.connect()
         cursor = connection.cursor()
 
@@ -31,7 +31,7 @@ class StudyGroupDatabase:
         return user
 
     def search_courses(self, search_term):
-        """Search for courses in the database"""
+        """This function searches for courses in the database"""
         connection = self.connect()
         cursor = connection.cursor()
 
