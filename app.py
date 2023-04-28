@@ -49,6 +49,7 @@ def signup():
 
 
 @app.route('/profile', methods=['GET', 'POST'])
+@login_required
 def profile():
     if 'user_id' not in session:
         return redirect(url_for('login'))
