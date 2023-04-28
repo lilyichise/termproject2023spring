@@ -1,5 +1,5 @@
 """
-OUR DATABASE DESING
+OUR DATABASE DESIGN
 Tables:
 1. Users
 user_id (primary key)
@@ -26,6 +26,7 @@ goal
 """
 
 import sqlite3
+
 
 def creating_database():
     """This function creates a database"""
@@ -67,21 +68,24 @@ def creating_database():
 
     # Insert sample data into the users table
     username_to_insert = 'user1'
-    cursor.execute ("SELECT * FROM users WHERE username=?", (username_to_insert,))
+    cursor.execute("SELECT * FROM users WHERE username=?",
+                   (username_to_insert,))
     existing_user = cursor.fetchone()
 
     if not existing_user:
-        cursor.execute("INSERT INTO users (name, email, password) VALUES (?,?,?)", (username_to_insert, 'user1@example.com', 'password1'))
+        cursor.execute("INSERT INTO users (name, email, password) VALUES (?,?,?)",
+                       (username_to_insert, 'user1@example.com', 'password1'))
         connection.commit()
 
     cursor.close()
     connection.close()
 
 
-#creating_database()
+# creating_database()
 
 def main():
     creating_database()
+
 
 if __name__ == '__main__':
     main()

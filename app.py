@@ -1,37 +1,38 @@
-from flask import Flask, render_template
-from flask import Flask, render_template, request
-from flask import Flask, g, render_template
+from flask import Flask, render_template, redirect, url_for, session, request
 from datapase_utils import StudyGroupDatabase
-import sqlite3
 
 app = Flask(__name__)
-
+app.secret_key = "1234python"
 DATABASE = 'study_groups.db'
 
 
 def get_db():
-    db = getattr(g, '_database', None)
-    if db is None:
-        # db = g._database =sqlite3.connect(DATABASE)
-        # db.row_factory = sqlite3.Row
-        db = g._database = StudyGroupDatabase(DATABASE)
-    return db
+    if 'db' not in g:
+        g.db = StudyGroupDatabase(DATABASE)
+    return g.db
+
+
+@app.teardown_appcontext
+def close_connection(exception):
+    db = g.pop('db', None)
+    if db is not None:
+        db.close()
+
 
 @app.route('/')
-def home():
-    # your code for the home page
-    pass
+def index():
+    db = get_db()
+    users = db.get_users()
+    courses = db.search_courses('math')
+    return render_template('homepage.html', users=users, courses=courses)
 
 
-------------------
 # Route for the login page
-
-
 @app.route("/login")
 def login():
     return render_template("login.html")
 
-# Route for the signup page
+# Route for signup page
 
 
 @app.route("/signup")
@@ -39,23 +40,12 @@ def signup():
     return render_template("signup.html")
 
 
-----------
-
-
-@app.route('/')
-def index():
-    db = get_db()
-    # users = db.execute('SELECT * FROM users').fetchall()
-    users = db.get_users()
-    courses = db.search_courses('math')
-    # return render_template('index.html', users=users)
-    return render_template('index.html', users=users, courses=courses)
-# route for the homepage
-    # return render_template("homepage.html")
-
-
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():
+    if 'user_id' not in session:
+        return redirect(url_for('login'))
+
+    db = get_db()
     if request.method == 'POST':
         name = request.form['name']
         course_code = request.form['course_code']
@@ -64,17 +54,13 @@ def profile():
         group_size = request.form['group_size']
         work_style = request.form['work_style']
         goal = request.form['goal']
-        # do something with the form data
+        # insert the form data into the database
+        db.insert_user_data(session['user_id'], name, course_code,
+                            meet_days, meet_times, group_size, work_style, goal)
 
-    return render_template('profile.html')
+    user_data = db.get_user_data(session['user_id'])
+    return render_template('profile.html', user_data=user_data)
 
 
-@app.teardown_appcontext
-def close_connection(exception):
-    db = getattr(g, '_database', None)
-    if db is not None:
-        db.close()
-
-        
 if __name__ == '__main__':
     app.run(debug=True)
