@@ -30,14 +30,18 @@ def index():
 # Route for the login page
 @app.route("/login")
 def login():
-    return render_template("login.html")
+    return render_template('login.html')
+
 
 # Route for signup page
 
 
 @app.route("/signup")
 def signup():
-    return render_template("signup.html")
+    if request.method == 'POST':
+        # Do something with the form data
+        return redirect(url_for('index'))
+    return render_template('signup.html')
 
 
 @app.route('/profile', methods=['GET', 'POST'])
