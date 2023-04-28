@@ -5,27 +5,6 @@ from google.oauth2 import id_token
 from flask_login import LoginManager, UserMixin, login_user, logout_user, current_user
 from flask import Flask, redirect, url_for
 
-
-@app.route('/google_login')
-def google_login():
-    # handle Google sign-in logic here
-    # set session variables as needed
-    return redirect(url_for('profile'))
-
-
-@app.route('/google_signup')
-def google_signup():
-    # handle Google sign-up logic here
-    # set session variables as needed
-    return redirect(url_for('profile'))
-
-
-@app.route('/profile', methods=['GET', 'POST'])
-def profile():
-    if 'user_id' not in session:
-        return redirect(url_for('login'))
-
-
 app = Flask(__name__)
 app.secret_key = os.environ.get('SECRET_KEY') or 'super_secret_key'
 
