@@ -1,113 +1,46 @@
-# import os
-# from google.auth.transport import requests
-# from google.oauth2 import id_token
-# from flask_login import LoginManager, UserMixin, login_user, logout_user, current_user
-# from flask import Flask, render_template, redirect, url_for, session, request
-# from database_utils import StudyGroupDatabase
-
-# app = Flask(__name__)
-# app.secret_key = "1234python"
-# DATABASE = 'study_groups.db'
-
-
-# def get_db():
-#     if 'db' not in g:
-#         g.db = StudyGroupDatabase(DATABASE)
-#     return g.db
-
-
-# @app.teardown_appcontext
-# def close_connection(exception):
-#     db = g.pop('db', None)
-#     if db is not None:
-#         db.close()
-
-
-# @app.route('/')
-# def index():
-#     db = get_db()
-#     users = db.get_users()
-#     courses = db.search_courses('math')
-#     return render_template('homepage.html', users=users, courses=courses)
-
-
-# # Route for the login page
-# @app.route("/login")
-# def login():
-#     return render_template('login.html')
-
-
-# # Route for signup page
-
-
-# @app.route("/signup")
-# def signup():
-#     if request.method == 'POST':
-#         # Do something with the form data
-#         return redirect(url_for('index'))
-#     return render_template('signup.html')
-
-
-# @app.route('/profile', methods=['GET', 'POST'])
-# @login_required
-# def profile():
-#     if 'user_id' not in session:
-#         return redirect(url_for('login'))
-
-#     db = get_db()
-#     if request.method == 'POST':
-#         name = request.form['name']
-#         course_code = request.form['course_code']
-#         meet_days = request.form['meet_days']
-#         meet_times = request.form['meet_times']
-#         group_size = request.form['group_size']
-#         work_style = request.form['work_style']
-#         goal = request.form['goal']
-#         # insert the form data into the database
-#         db.insert_user_data(session['user_id'], name, course_code,
-#                             meet_days, meet_times, group_size, work_style, goal)
-
-#     user_data = db.get_user_data(session['user_id'])
-#     return render_template('profile.html', user_data=user_data)
-
-
-# if __name__ == '__main__':
-#     app.run(debug=True)
-
-from flask import Flask, render_template, request, g, redirect, url_for, session
-import sqlite3
-from flask_oauthlib.client import OAuth
-import requests
+import os
+from google.auth.transport import requests
+from google.oauth2 import id_token
+from flask_login import LoginManager, UserMixin, login_user, logout_user, current_user
+from flask import Flask, render_template, redirect, url_for, session, request
+from database_utils import StudyGroupDatabase
 
 app = Flask(__name__)
-
-app.secret_key = 'your_secret_key'
-oauth = OAuth(app)
-
+app.secret_key = "1234python"
 DATABASE = 'study_groups.db'
 
 
 def get_db():
-    db = getattr(g, '_database', None)
-    if db is None:
-        db = g._database = sqlite3.connect(DATABASE)
-        db.row_factory = sqlite3.Row
-    return db
+    if 'db' not in g:
+        g.db = StudyGroupDatabase(DATABASE)
+    return g.db
 
 
 @app.teardown_appcontext
 def close_connection(exception):
-    db = getattr(g, '_database', None)
+    db = g.pop('db', None)
     if db is not None:
         db.close()
 
 
 @app.route('/')
-def home():
-    return render_template('homepage.html')
+def index():
+    db = get_db()
+    users = db.get_users()
+    courses = db.search_courses('math')
+    return render_template('homepage.html', users=users, courses=courses)
 
 
-@app.route('/signup', methods=['GET', 'POST'])
+# Route for the login page
+@app.route("/login")
+def login():
+    return render_template('login.html')
+
+
+# Route for signup page
+
+
+@app.route("/signup")
 def signup():
     if request.method == 'POST':
         # Do something with the form data
@@ -115,16 +48,13 @@ def signup():
     return render_template('signup.html')
 
 
-@app.route('/index')
-def index():
-    db = get_db()
-    users = db.execute('SELECT * FROM users').fetchall()
-    courses = db.execute('SELECT * FROM courses WHERE course_name LIKE ?', ('%math%',)).fetchall()
-    return render_template('index.html', users=users, courses=courses)
-
-
 @app.route('/profile', methods=['GET', 'POST'])
+@login_required
 def profile():
+    if 'user_id' not in session:
+        return redirect(url_for('login'))
+
+    db = get_db()
     if request.method == 'POST':
         name = request.form['name']
         course_code = request.form['course_code']
@@ -133,8 +63,12 @@ def profile():
         group_size = request.form['group_size']
         work_style = request.form['work_style']
         goal = request.form['goal']
-        # do something with the form data
-    return render_template('profile.html')
+        # insert the form data into the database
+        db.insert_user_data(session['user_id'], name, course_code,
+                            meet_days, meet_times, group_size, work_style, goal)
+
+    user_data = db.get_user_data(session['user_id'])
+    return render_template('profile.html', user_data=user_data)
 
 
 google = oauth.remote_app(
@@ -161,7 +95,8 @@ def login():
 def callback():
     access_token = google.authorized_response()['access_token']
     session['access_token'] = access_token
-    user_info = requests.get('https://www.googleapis.com/oauth2/v1/userinfo', params={'access_token': access_token})
+    user_info = requests.get(
+        'https://www.googleapis.com/oauth2/v1/userinfo', params={'access_token': access_token})
     return "Hello, {}!".format(user_info.json()['email'])
 
 
