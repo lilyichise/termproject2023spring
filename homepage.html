@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Website</title>
+    <style>
+        /* Style the background image */
+        body {
+            background: url('path/to/background-image.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        /* Style the login button */
+        #login-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: block;
+            width: 100px;
+            height: 50px;
+            background: url('path/to/login-button.png') no-repeat center center;
+            background-size: contain;
+            text-indent: -9999px;
+            /* hide the button text */
+            z-index: 999;
+            /* set a high z-index value */
+        }
+
+        /* Style the sign-up button */
+        #button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: block;
+            width: 200px;
+            height: 100px;
+            background: url('path/to/button-image.png') no-repeat center center;
+            background-size: contain;
+            text-indent: -9999px;
+            /* hide the button text */
+            z-index: 999;
+            /* set a high z-index value */
+        }
+
+        /* Style the heading */
+        h1 {
+            color: white;
+            font-size: 48px;
+            text-align: center;
+            margin-top: 200px;
+        }
+
+        /* Style the paragraph */
+        p {
+            color: white;
+            font-size: 24px;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="login.html" id="login-button">Login</a>
+    <a href="signup.html" id="button">Sign Up</a>
+    <h1>Welcome to My Website</h1>
+    <p>This is a paragraph of text that describes my website.</p>
+</body>
+
+</html>
