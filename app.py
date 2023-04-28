@@ -1,3 +1,4 @@
+from flask import Flask, render_template
 from flask import Flask, render_template, request
 from flask import Flask, g, render_template
 from datapase_utils import StudyGroupDatabase
@@ -24,6 +25,25 @@ def close_connection(exception):
         db.close()
 
 
+------------------
+# Route for the login page
+
+
+@app.route("/login")
+def login():
+    return render_template("login.html")
+
+# Route for the signup page
+
+
+@app.route("/signup")
+def signup():
+    return render_template("signup.html")
+
+
+----------
+
+
 @app.route('/')
 def index():
     db = get_db()
@@ -32,6 +52,8 @@ def index():
     courses = db.search_courses('math')
     # return render_template('index.html', users=users)
     return render_template('index.html', users=users, courses=courses)
+# route for the homepage
+    # return render_template("homepage.html")
 
 
 @app.route('/profile', methods=['GET', 'POST'])
@@ -50,4 +72,4 @@ def profile():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
