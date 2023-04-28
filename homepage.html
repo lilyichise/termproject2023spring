@@ -9,7 +9,7 @@
             background-size: cover;
         }
 
-        /* Style the login button */
+        Style the login button
         #login-button {
             position: fixed;
             top: 20px;
@@ -24,7 +24,6 @@
             z-index: 999;
             /* set a high z-index value */
         }
-
         /* Style the sign-up button */
         #button {
             position: absolute;
@@ -57,12 +56,24 @@
             text-align: center;
             margin-top: 20px;
         }
+        /* p{
+            {% for user in users %}
+            <p>{{ user.name }}</p>
+            {% endfor %}
+
+            {% for course in courses %}
+            <p>{{ course.course_name }} - {{ course.course_code }}</p>
+            {% endfor %}
+
+        } */
     </style>
 </head>
 
 <body>
-    <a href="login.html" id="login-button">Login</a>
-    <a href="signup.html" id="button">Sign Up</a>
+    <h1> Welcome to the Study Groups APP</h1>
+    <p> Find you Perfect Study Group Now</p>
+    <a href="/login" id="login-button">Login</a>
+    <a href="/signup" id="button">Sign Up</a>    
 </body>
 
 </html>

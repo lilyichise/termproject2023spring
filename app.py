@@ -1,7 +1,4 @@
-from flask import Flask, render_template
-from flask import Flask, render_template, request
-from flask import Flask, g, render_template
-from datapase_utils import StudyGroupDatabase
+from flask import Flask, render_template, request, g
 import sqlite3
 
 app = Flask(__name__)
@@ -12,48 +9,39 @@ DATABASE = 'study_groups.db'
 def get_db():
     db = getattr(g, '_database', None)
     if db is None:
-        # db = g._database =sqlite3.connect(DATABASE)
-        # db.row_factory = sqlite3.Row
-        db = g._database = StudyGroupDatabase(DATABASE)
+        db = g._database = sqlite3.connect(DATABASE)
+        db.row_factory = sqlite3.Row
     return db
+
 
 @app.route('/')
 def home():
-    # your code for the home page
-    pass
+    return render_template('homepage.html')
 
 
-------------------
 # Route for the login page
-
-
-@app.route("/login")
+@app.route('/login')
 def login():
-    return render_template("login.html")
+    return render_template('login.html')
+
 
 # Route for the signup page
-
-
-@app.route("/signup")
+@app.route('/signup', methods=['GET', 'POST'])
 def signup():
-    return render_template("signup.html")
+    if request.method == 'POST':
+        # Do something with the form data
+        return redirect(url_for('index'))
+    return render_template('signup.html')
 
-
-----------
-
-
-@app.route('/')
+@app.route('/index')
 def index():
     db = get_db()
-    # users = db.execute('SELECT * FROM users').fetchall()
-    users = db.get_users()
-    courses = db.search_courses('math')
-    # return render_template('index.html', users=users)
+    users = db.execute('SELECT * FROM users').fetchall()
+    courses = db.execute('SELECT * FROM courses WHERE course_name LIKE ?', ('%math%',)).fetchall()
     return render_template('index.html', users=users, courses=courses)
-# route for the homepage
-    # return render_template("homepage.html")
 
 
+# Route for the profile page
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():
     if request.method == 'POST':
@@ -65,7 +53,6 @@ def profile():
         work_style = request.form['work_style']
         goal = request.form['goal']
         # do something with the form data
-
     return render_template('profile.html')
 
 
@@ -75,6 +62,6 @@ def close_connection(exception):
     if db is not None:
         db.close()
 
-        
+
 if __name__ == '__main__':
     app.run(debug=True)
