@@ -8,7 +8,6 @@
 <body>
     <div id="login-popup">
         <div class="login-popup-content">
-            <span class="login-popup-close">&times;</span>
             <h2>Welcome Back</h2>
             {% if error %}
             <p style="color: red">{{ error }}</p>
@@ -26,7 +25,6 @@
     <script>
         var loginButton = document.getElementById("login-button");
         var loginPopup = document.getElementById("login-popup");
-        var loginPopupClose = document.getElementsByClassName("login-popup-close")[0];
 
         loginButton.onclick = function () {
             loginPopup.style.display = "block";
