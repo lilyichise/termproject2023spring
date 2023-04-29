@@ -2,6 +2,7 @@ import os
 from flask_login import LoginManager, UserMixin, login_user, logout_user, current_user, login_required
 from flask import Flask, render_template, redirect, url_for, session, request, g
 from database_utils import StudyGroupDatabase
+import sqlite3
 
 app = Flask(__name__)
 app.secret_key = "1234python"
@@ -35,7 +36,7 @@ def homepage():
 
 
 # Route for the login page
-@app.route("/login")
+@app.route("/login", methods=['GET', 'POST'])
 def login():
     # check if the user is already logged in
     if 'user_id' in session:

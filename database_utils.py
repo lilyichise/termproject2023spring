@@ -1,5 +1,6 @@
 import sqlite3
 
+
 class StudyGroupDatabase:
     def __init__(self, db_path):
         self.db_path = db_path
@@ -17,7 +18,8 @@ class StudyGroupDatabase:
         """This function adds a new user to the database"""
         cursor = self.connection.cursor()
 
-        cursor.execute("INSERT INTO users (name, email, password) VALUES (?, ?, ?)", (name, email, password))
+        cursor.execute(
+            "INSERT INTO users (name, email, password) VALUES (?, ?, ?)", (name, email, password))
 
         self.connection.commit()
 
@@ -29,6 +31,21 @@ class StudyGroupDatabase:
         user = cursor.fetchone()
 
         return user
+
+    def check_user(self, email, password):
+        # query the database for a user with the given email and password
+        with sqlite3.connect(self.db_path) as conn:
+            cursor = conn.cursor()
+            query = "SELECT user_id FROM users WHERE email = ? AND password = ?"
+            cursor.execute(query, (email, password))
+            result = cursor.fetchone()
+
+            if result:
+                # return the user ID if a match is found
+                return result[0]
+            else:
+                # return None if no match is found
+                return None
 
     def get_users(self):
         """This function retrieves all users from the database"""
@@ -43,7 +60,8 @@ class StudyGroupDatabase:
         """This function searches for courses in the database"""
         cursor = self.connection.cursor()
 
-        cursor.execute("SELECT * FROM courses WHERE course_name LIKE ? OR course_code LIKE ?", (f"%{search_term}%", f"%{search_term}%"))
+        cursor.execute("SELECT * FROM courses WHERE course_name LIKE ? OR course_code LIKE ?",
+                       (f"%{search_term}%", f"%{search_term}%"))
         courses = cursor.fetchall()
 
         return courses
@@ -51,7 +69,8 @@ class StudyGroupDatabase:
     def get_user_course_preferences(self, user_id):
         cursor = self.connection.cursor()
 
-        cursor.execute("SELECT * FROM user_courses WHERE user_id=?", (user_id,))
+        cursor.execute(
+            "SELECT * FROM user_courses WHERE user_id=?", (user_id,))
         user_preferences = cursor.fetchone()
 
         return user_preferences
@@ -63,6 +82,7 @@ class StudyGroupDatabase:
         all_preferences = cursor.fetchall()
 
         return all_preferences
+
 
 def creating_database():
     connection = sqlite3.connect('study_groups.db')
@@ -105,6 +125,7 @@ def creating_database():
     cursor.close()
     connection.close()
 
+
 def delete_users_table():
     connection = sqlite3.connect('study_groups.db')
     cursor = connection.cursor()
@@ -114,6 +135,7 @@ def delete_users_table():
 
     cursor.close()
     connection.close()
+
 
 if __name__ == "__main__":
     delete_users_table()
