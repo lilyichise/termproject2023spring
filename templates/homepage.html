@@ -5,9 +5,12 @@
     <style>
         /* Style the background image */
         body {
-            background: url('button_images/homepage_background.jpg') no-repeat center center fixed;
-            background-size: cover;
+        background-image: url("/Users/matthew/Documents/GitHub/termproject2023spring/button_images/homepage_background.jpg");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
         }
+
 
         Style the login button #login-button {
             position: fixed;
@@ -43,7 +46,7 @@
 
         /* Style the heading */
         h1 {
-            color: white;
+            color: black;
             font-size: 48px;
             text-align: center;
             margin-top: 200px;
@@ -51,7 +54,7 @@
 
         /* Style the paragraph */
         p {
-            color: white;
+            color: black;
             font-size: 24px;
             text-align: center;
             margin-top: 20px;
@@ -71,8 +74,43 @@
 </head>
 
 <body>
+    <h1> Welcome to the Study Groups APP</h1>
+    <p> Find you Perfect Study Group Now</p>
     <a href="/login" id="login-button">Login</a>
-    <a href="/signup" id="button">Sign Up</a>
+    <a href="/signup" id="button">Sign Up</a>    
 </body>
+
+<style>
+    .button-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+    }
+    
+    #login-button, #sign-up-button {
+        display: block;
+        width: 150px;
+        height: 50px;
+        background-color: #4040ea;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        border: none;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: background-color 0.3s ease;
+        cursor: pointer;
+        margin: 20px;
+        line-height: 50px;
+    }
+    
+    #login-button:hover, #sign-up-button:hover {
+        background-color: #3e8e41;
+    }
+</style>
+
 
 </html>

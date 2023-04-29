@@ -29,7 +29,9 @@ def close_connection(exception):
 @app.route('/')
 def homepage():
     db = get_db()
-    return render_template('homepage.html')
+    users = db.get_users()
+    courses = db.search_courses('')
+    return render_template('homepage.html', users=users, courses=courses)
 
 
 # Route for the login page
