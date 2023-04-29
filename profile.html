@@ -12,7 +12,14 @@
         <input type="text" id="name" name="name"><br>
 
         <label for="course_code">Course Code:</label>
-        <input type="text" id="course_code" name="course_code"><br>
+        <select id="course_code" name="course_code">
+            {% for course in courses %}
+            <option value="{{ course.code }}" {% if selected_course==course.code %}selected{% endif %}>{{ course.code }}
+            </option>
+            {% endfor %}
+        </select>
+        <input type="text" id="search_course_code" name="search_course_code">
+        <button type="submit" name="search_course_code">Search/Add Course</button><br>
 
         <label for="meet_days">Preferred Meet Days:</label>
         <input type="radio" id="meet_days_M" name="meet_days" value="M">
@@ -42,4 +49,19 @@
         <input type="radio" id="group_size_small" name="group_size" value="small">
         <label for="group_size_small">Small [2-3 ppl]</label>
         <input type="radio" id="group_size_medium" name="group_size" value="medium">
-        <label for="group_size_medium">Medium [3-5]</label
+        <label for="group_size_medium">Medium [3-5]</label>
+        <input type="radio" id="group_size_large" name="group_size" value="large">
+        <label for="group_size_large">Large [5+]</label><br>
+
+        <label for="work_style">Preferred Work Style:</label>
+        <select id="work_style" name="work_style">
+            <option value="individual">Individual</option>
+            <option value="pair">Pair</option>
+            <option value="group">Group</option>
+        </select><br>
+
+        <label for="goal">Goal:</label>
+        <textarea id="goal" name="goal"></textarea><br>
+
+        <input type="submit" value="Save">
+    </form>
