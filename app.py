@@ -151,6 +151,10 @@ def profile():
         db.insert_user_data(session['user_id'], name, course_code,
                             meet_days, meet_times, group_size, work_style, goal)
 
+        # Call the notify_match function
+        match_info = f"{name} is looking for a study group for {course_code}. They are available on {meet_days} at {meet_times} with a group size of {group_size}. Their preferred work style is {work_style} and their goal is {goal}."
+        notify_match(updater, chat_id, match_info)
+
         # Redirect to the profile page
         return redirect(url_for('profile'))
 

@@ -53,10 +53,9 @@ def main():
     # Run the bot until Ctrl-C is pressed or the process receives SIGINT, SIGTERM, or SIGABRT
     updater.idle()
 
-def notify_match(chat_id, match_info):
+def notify_match(updater, chat_id, match_info):
     """Send a notification about a found match to a specific user."""
     updater.bot.send_message(chat_id, f"Match found! {match_info}")
-
 
 
 if __name__ == '__main__':
