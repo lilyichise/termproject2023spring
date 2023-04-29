@@ -23,15 +23,13 @@ def get_db():
 def close_connection(exception):
     db = g.pop('db', None)
     if db is not None:
-        db.conn.close()
+        db.close()
 
 
 @app.route('/')
 def homepage():
     db = get_db()
-    users = db.get_users()
-    courses = db.search_courses('')
-    return render_template('homepage.html', users=users, courses=courses)
+    return render_template('homepage.html')
 
 
 # Route for the login page
