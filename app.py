@@ -1,3 +1,5 @@
+#######ITERATION 2###################
+
 import os
 from flask_login import LoginManager, UserMixin, login_user, logout_user, current_user, login_required
 from flask import Flask, render_template, redirect, url_for, session, request, g
@@ -7,7 +9,26 @@ import sqlite3
 app = Flask(__name__)
 app.secret_key = "1234python"
 
-# set path for database
+######## FOR DEPLOYMENT ###########
+# db_url = os.environ.get('DATABASE_URL')
+
+# if db_url:
+#     # Use the environment variable to configure the database connection
+#     app.config['DATABASE'] = db_url
+# else:
+#     # Use a default database path if the environment variable is not set
+#     app.config['DATABASE'] = 'study_groups.db'
+
+# def get_db():
+#     """
+#     function to get database
+#     """
+#     if 'db' not in g:
+#         g.db = StudyGroupDatabase(app.config['DATABASE'])
+#     return g.db
+###########################################
+
+####FOR TESTING ####
 DATABASE = 'study_groups.db'
 
 
@@ -19,6 +40,7 @@ def get_db():
         g.db = StudyGroupDatabase(DATABASE)
     return g.db
 
+##########################################
 
 @app.teardown_appcontext
 def close_connection(exception):
@@ -64,9 +86,8 @@ def login():
     # display the login form
     return render_template('login.html')
 
+
 # create the route for the signup page
-
-
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     # check if the user is already logged in
@@ -91,12 +112,13 @@ def signup():
     # display the signup form
     return render_template('signup.html')
 
-
+        # Get the user's data
 @app.route('/profile', methods=['GET', 'POST'])
 @login_required
 def profile():
     # get the user's information from the database
     db = get_db()
+
     # Handle the course code search and add functionality
     if request.method == 'POST' and 'search_course_code' in request.form:
         # Get the course code entered by the user
@@ -135,8 +157,9 @@ def profile():
     # If the request method is GET, display the profile page with the user's data
     else:
         user_data = db.get_user_data(session['user_id'])
-        return render_template('profile.html', user_data=user_data)
-
+        user_preferences = db.get_user_course_preferences(session['user_id'])
+        return render_template('profile.html', user_data=user_data, user_preferences=user_preferences)
 
 if __name__ == '__main__':
     app.run(debug=True)
+
