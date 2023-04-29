@@ -1,4 +1,4 @@
-#######ITERATION 2###################
+####### ITERATION 2###################
 
 import os
 from flask_login import LoginManager, UserMixin, login_user, logout_user, current_user, login_required
@@ -28,7 +28,7 @@ app.secret_key = "1234python"
 #     return g.db
 ###########################################
 
-####FOR TESTING ####
+#### FOR TESTING ####
 DATABASE = 'study_groups.db'
 
 
@@ -41,6 +41,7 @@ def get_db():
     return g.db
 
 ##########################################
+
 
 @app.teardown_appcontext
 def close_connection(exception):
@@ -112,7 +113,9 @@ def signup():
     # display the signup form
     return render_template('signup.html')
 
-        # Get the user's data
+    # Get the user's data
+
+
 @app.route('/profile', methods=['GET', 'POST'])
 @login_required
 def profile():
@@ -164,6 +167,6 @@ def profile():
         user_preferences = db.get_user_course_preferences(session['user_id'])
         return render_template('profile.html', user_data=user_data, user_preferences=user_preferences)
 
+
 if __name__ == '__main__':
     app.run(debug=True)
-
