@@ -137,6 +137,7 @@ def delete_users_table():
     connection.close()
 
 
+
 if __name__ == "__main__":
     delete_users_table()
 
