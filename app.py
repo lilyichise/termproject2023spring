@@ -23,7 +23,7 @@ def get_db():
 def close_connection(exception):
     db = g.pop('db', None)
     if db is not None:
-        db.close()
+        db.conn.close()
 
 
 @app.route('/')
