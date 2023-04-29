@@ -1,31 +1,41 @@
+<!DOCTYPE html>
+<html>
 
-<div id="login-popup">
-    <div class="login-popup-content">
-        <span class="login-popup-close">&times;</span>
-        <h2>Welcome Back</h2>
-        <p>Click the button below to Login:</p>
-        <button id="login-button">Login</button>
+<head>
+    <title>Login</title>
+</head>
+
+<body>
+    <div id="login-popup">
+        <div class="login-popup-content">
+            <span class="login-popup-close">&times;</span>
+            <h2>Welcome Back</h2>
+            {% if error %}
+            <p style="color: red">{{ error }}</p>
+            {% endif %}
+            <form method="POST">
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email"><br>
+                <label for="password">Password:</label><br>
+                <input type="password" id="password" name="password"><br><br>
+                <input type="submit" value="Login">
+            </form>
+        </div>
     </div>
-</div>
 
-<script>
-    var loginButton = document.getElementById("login-button");
-    var loginPopup = document.getElementById("login-popup");
-    var googleLoginButton = document.getElementById("google-login-button");
-    var loginPopupClose = document.getElementsByClassName("login-popup-close")[0];
+    <script>
+        var loginButton = document.getElementById("login-button");
+        var loginPopup = document.getElementById("login-popup");
+        var loginPopupClose = document.getElementsByClassName("login-popup-close")[0];
 
-    loginButton.onclick = function () {
-        loginPopup.style.display = "block";
-    }
+        loginButton.onclick = function () {
+            loginPopup.style.display = "block";
+        }
 
-    // googleLoginButton.onclick = function () {
-    //     // Code to redirect to Google login page
-    // }
-
-    loginPopupClose.onclick = function () {
-        loginPopup.style.display = "none";
-    }
-</script>
+        loginPopupClose.onclick = function () {
+            loginPopup.style.display = "none";
+        }
+    </script>
 
 </body>
 
