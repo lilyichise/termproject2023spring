@@ -60,11 +60,24 @@ class StudyGroupDatabase:
         """This function searches for courses in the database"""
         cursor = self.connection.cursor()
 
-        cursor.execute("SELECT * FROM courses WHERE course_name LIKE ? OR course_code LIKE ?",
-                       (f"%{search_term}%", f"%{search_term}%"))
-        courses = cursor.fetchall()
+        if search_term:
+            cursor.execute("SELECT * FROM Courses WHERE course_name LIKE ? OR course_code LIKE ?",
+                           (f"%{search_term}%", f"%{search_term}%"))
+        else:
+            cursor.execute("SELECT * FROM Courses")
 
+        courses = cursor.fetchall()
         return courses
+    
+    def get_course_by_code(self, code):
+        """This function retrieves a course from the database by its code"""
+        cursor = self.connection.cursor()
+
+        cursor.execute("SELECT * FROM Courses WHERE course_code=?", (code,))
+        course = cursor.fetchone()
+
+        return course
+
 
     def get_user_course_preferences(self, user_id):
         cursor = self.connection.cursor()
@@ -91,9 +104,7 @@ def creating_database():
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS users (
         user_id INTEGER PRIMARY KEY,
-        name TEXT NOT NULL,
         email TEXT UNIQUE NOT NULL,
-        phone_number TEXT,
         password TEXT NOT NULL
     )
     """)
@@ -130,7 +141,7 @@ def delete_users_table():
     connection = sqlite3.connect('study_groups.db')
     cursor = connection.cursor()
 
-    cursor.execute("DROP TABLE IF EXISTS users")
+    cursor.execute("DROP TABLE IF EXISTS Users")
     connection.commit()
 
     cursor.close()

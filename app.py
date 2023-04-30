@@ -1,4 +1,4 @@
-####### ITERATION 2###################
+#######Our App###################
 
 import os
 from flask_login import LoginManager, UserMixin, login_user, logout_user, current_user, login_required
@@ -8,6 +8,26 @@ import sqlite3
 
 app = Flask(__name__)
 app.secret_key = "1234python"
+
+#Puting a login manager to correct an error
+login_manager = LoginManager()
+login_manager.init_app(app)
+
+class User(UserMixin):
+    def __init__(self, user_id):
+        self.id = user_id
+
+@login_manager.user_loader
+def load_user(user_id):
+    """Load a user from the database using the user ID."""
+    db = get_db()
+    user_data = db.get_user(int(user_id))
+    if user_data:
+        return User(user_id)
+    return None
+
+
+
 
 ######## FOR DEPLOYMENT ###########
 # db_url = os.environ.get('DATABASE_URL')
@@ -30,7 +50,7 @@ app.secret_key = "1234python"
 
 #### FOR TESTING ####
 DATABASE = 'study_groups.db'
-
+#app.config['DATABASE'] = 'study_groups.db'
 
 def get_db():
     """
@@ -104,8 +124,7 @@ def signup():
         # add the user to the database and set the user_id session variable
         db = get_db()
         user_id = db.add_user(name, email, password)
-        user = User(user_id)
-        login_user(user)
+        session['user_id'] = user_id
 
         # redirect to the homepage
         return redirect(url_for('homepage'))
