@@ -187,35 +187,27 @@ def signup():
 #         return render_template('profile.html', user_data=user_data, user_preferences=user_preferences)
 
 ####ATTEMPT 2########
+
 @app.route('/profile', methods=['GET', 'POST'])
 @login_required
 def profile():
-    # get the user's information from the database
     db = get_db()
 
-    # Handle the course code search and add functionality
     if request.method == 'POST' and 'search_course_code' in request.form:
-        # Get the course code entered by the user
         course_code = request.form['search_course_code']
-
-        # Check if the course code already exists in the database
         if db.get_course_by_code(course_code) is not None:
-            # If the course code already exists, set it as the selected option
             selected_course = course_code
         else:
-            # If the course code does not exist, add it to the database
             db.add_course(course_code)
             selected_course = course_code
 
-        # Get the user's data
         user_data = db.get_user_data(session['user_id'])
         if user_data is None:
-            message = "We will notify you once a match is found."
-            return render_template('profile.html', message=message)
+            flash("We will notify you once a match is found.")
+            return render_template('profile.html')
         else:
             return render_template('profile.html', user_data=user_data, selected_course=selected_course)
 
-    # Handle the form submission
     elif request.method == 'POST':
         name = request.form['name']
         course_code = request.form['course_code']
@@ -225,28 +217,25 @@ def profile():
         work_style = request.form['work_style']
         goal = request.form['goal']
 
-        # Insert the form data into the database
         db.insert_user_data(session['user_id'], name, course_code,
                             meet_days, meet_times, group_size, work_style, goal)
 
-        # Find matching users
         matching_users = db.find_matching_users(session['user_id'], course_code, meet_days, meet_times, group_size, work_style, goal)
-        
+
         if len(matching_users) == 0:
-            # If no match found, render the no_match.html page
+            flash("No match found.")
             return render_template('no_match.html')
         else:
-            # If matches found, process them (e.g., notify the user, etc.)
+            # Process matching users, e.g., notify the user, etc.
             # ...
 
-        # Add a return statement here to redirect to the profile page
             return redirect(url_for('profile'))
 
-    # If the request method is GET, display the profile page with the user's data
     else:
         user_data = db.get_user_data(session['user_id'])
         user_preferences = db.get_user_course_preferences(session['user_id'])
         return render_template('profile.html', user_data=user_data, user_preferences=user_preferences)
+
 
 @app.route('/logout')
 @login_required
