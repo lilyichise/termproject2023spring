@@ -60,6 +60,16 @@ preferred_times
 group_size_preference
 work_style
 goal
+  
+ ## Roadmap
+
+- [x] Add/Delete Notice
+- [x] Add/Delete Student Majors
+- [x] Add Polls questions
+- [ ] User Authentication
+- [ ] Interaction between Django and React
+  
+  
 Credits
 
 The Study Group Finder web application was created by Matthew Syrigos and Lily Ichiseas a project for Problem Solving and Software Design.
