@@ -235,9 +235,9 @@ def profile():
             flash("No match found.")
             return render_template('no_match.html')
         else:
-            # Process matching users, e.g., notify the user, etc.
-            # ...
-
+            for match in matching_users:
+                match_info = f"{match[0]} ({match[1]}) is looking for a study group for {course_code}. They are available on {meet_days} at {meet_times} with a group size of {group_size}. Their preferred work style is {work_style} and their goal is {goal}."
+                notify_match(session['user_id'], match_info)
             return redirect(url_for('profile'))
 
     else:
