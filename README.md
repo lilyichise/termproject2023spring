@@ -1,10 +1,10 @@
 # termproject2023spring
 
-Study Group Finder
+# Study Group Finder
 
 Study Group Finder is a Python Flask web application that allows users to sign up and create study groups for courses they are taking. It uses Flask's built-in authentication system and SQLite database to store user information and study group data.
 
-Installation
+# Installation
 
 To run the application, you will need to have Python 3 and Flask installed. You can install Flask using pip:
 
@@ -26,7 +26,7 @@ Copy code
 flask run
 This will start the application on http://localhost:5000/.
 
-Routes
+# Routes
 The application has the following routes:
 
 / (homepage) - displays a list of users and courses
@@ -37,7 +37,7 @@ Dependencies
 Python 3
 Flask
 SQLite
-Database Design
+# Database Design
 
 The application uses an SQLite database to store user information and study group data. The database has the following tables:
 
@@ -60,6 +60,27 @@ preferred_times
 group_size_preference
 work_style
 goal
-Credits
+
+# Results  
+  
+  
+# Project Evolution / Narrative    
+Overall, the application provides a simple and user-friendly interface for creating and joining study groups for courses, and demonstrates the use of Flask's authentication system and SQLite database. 
+  
+## Frontend Roadmap
+- [x] Set up a shared GitHub repository and invite the other team member.
+- [x] Install necessary tools and libraries for Flask web development.
+- [x] Design a basic user interface for the application, including the sign-up, login, and profile creation pages. You can use pen and paper or a simple wireframing tool.
+- [x] Start implementing the frontend of the application using Flask and a templating engine like Jinja2. Focus on creating the main pages (sign-up, login, profile creation) with simple HTML forms and basic styling using CSS.
+  
+## Backend Roadmap
+- [x] Research and choose a simple database management system (e.g., SQLite) for the project.
+- [x] Install the chosen database and necessary libraries for connecting to the database from the Flask application.
+- [x] Design a basic database schema with tables for user information and courses.
+- [x] Set up the database in the development environment.
+- [x] Create simple functions or classes to interact with the database (e.g., adding users, searching for courses).
+- [x] Integrate the database with the frontend, so that user registration, login, and profile creation work with the backend.
+
+# Credits
 
 The Study Group Finder web application was created by Matthew Syrigos and Lily Ichise as a project for Problem Solving and Software Design.
