@@ -61,19 +61,19 @@ group_size_preference
 work_style
 goal
 
-##Frontend Roadmap
-- [x]Set up a shared GitHub repository and invite the other team member.
-- [x]Install necessary tools and libraries for Flask web development.
-- [x]Design a basic user interface for the application, including the sign-up, login, and profile creation pages. You can use pen and paper or a simple wireframing tool.
-- [x]Start implementing the frontend of the application using Flask and a templating engine like Jinja2. Focus on creating the main pages (sign-up, login, profile creation) with simple HTML forms and basic styling using CSS.
+## Frontend Roadmap
+- [x] Set up a shared GitHub repository and invite the other team member.
+- [x] Install necessary tools and libraries for Flask web development.
+- [x] Design a basic user interface for the application, including the sign-up, login, and profile creation pages. You can use pen and paper or a simple wireframing tool.
+- [x] Start implementing the frontend of the application using Flask and a templating engine like Jinja2. Focus on creating the main pages (sign-up, login, profile creation) with simple HTML forms and basic styling using CSS.
   
-##Backend Roadmap
-- [x]Research and choose a simple database management system (e.g., SQLite) for the project.
-- [x]Install the chosen database and necessary libraries for connecting to the database from the Flask application.
-- [x]Design a basic database schema with tables for user information and courses.
-- [x]Set up the database in the development environment.
-- [x]Create simple functions or classes to interact with the database (e.g., adding users, searching for courses).
-- [x]Integrate the database with the frontend, so that user registration, login, and profile creation work with the backend.
+## Backend Roadmap
+- [x] Research and choose a simple database management system (e.g., SQLite) for the project.
+- [x] Install the chosen database and necessary libraries for connecting to the database from the Flask application.
+- [x] Design a basic database schema with tables for user information and courses.
+- [x] Set up the database in the development environment.
+- [x] Create simple functions or classes to interact with the database (e.g., adding users, searching for courses).
+- [x] Integrate the database with the frontend, so that user registration, login, and profile creation work with the backend.
 
   
   
