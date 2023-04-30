@@ -61,6 +61,12 @@ group_size_preference
 work_style
 goal
 
+# Results  
+  
+  
+# Project Evolution / Narrative    
+Overall, the application provides a simple and user-friendly interface for creating and joining study groups for courses, and demonstrates the use of Flask's authentication system and SQLite database. 
+  
 ## Frontend Roadmap
 - [x] Set up a shared GitHub repository and invite the other team member.
 - [x] Install necessary tools and libraries for Flask web development.
@@ -75,9 +81,6 @@ goal
 - [x] Create simple functions or classes to interact with the database (e.g., adding users, searching for courses).
 - [x] Integrate the database with the frontend, so that user registration, login, and profile creation work with the backend.
 
-# Reflection  
-Overall, the application provides a simple and user-friendly interface for creating and joining study groups for courses, and demonstrates the use of Flask's authentication system and SQLite database. 
-  
 # Credits
 
 The Study Group Finder web application was created by Matthew Syrigos and Lily Ichiseas a project for Problem Solving and Software Design.
