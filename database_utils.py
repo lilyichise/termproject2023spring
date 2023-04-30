@@ -34,7 +34,6 @@ class StudyGroupDatabase:
         return user
 
     def check_user(self, email, password):
-        # query the database for a user with the given email and password
         with sqlite3.connect(self.db_path) as conn:
             cursor = conn.cursor()
             query = "SELECT user_id FROM users WHERE email = ? AND password = ?"
