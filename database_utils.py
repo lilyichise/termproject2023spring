@@ -159,11 +159,8 @@ def delete_users_table():
     connection.close()
 
 
-<<<<<<< Updated upstream
 
 
-=======
->>>>>>> Stashed changes
 if __name__ == "__main__":
     delete_users_table()
 

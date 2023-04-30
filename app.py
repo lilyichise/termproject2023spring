@@ -5,6 +5,7 @@ from flask_login import LoginManager, UserMixin, login_user, logout_user, curren
 from flask import Flask, render_template, redirect, url_for, session, request, g
 from database_utils import StudyGroupDatabase
 import sqlite3
+from notification_utils import notify_match
 
 app = Flask(__name__)
 app.secret_key = "1234python"
@@ -132,76 +133,11 @@ def signup():
     # display the signup form
     return render_template('signup.html')
 
-    # Get the user's data
-
-
-# @app.route('/profile', methods=['GET', 'POST'])
-# @login_required
-# def profile():
-#     # get the user's information from the database
-#     db = get_db()
-
-#     # Handle the course code search and add functionality
-#     if request.method == 'POST' and 'search_course_code' in request.form:
-#         # Get the course code entered by the user
-#         course_code = request.form['search_course_code']
-
-#         # Check if the course code already exists in the database
-#         if db.get_course_by_code(course_code) is not None:
-#             # If the course code already exists, set it as the selected option
-#             selected_course = course_code
-#         else:
-#             # If the course code does not exist, add it to the database
-#             db.add_course(course_code)
-#             selected_course = course_code
-
-#         # Get the user's data
-#         user_data = db.get_user_data(session['user_id'])
-#         return render_template('profile.html', user_data=user_data, selected_course=selected_course)
-
-#     # Handle the form submission
-#     elif request.method == 'POST':
-#         name = request.form['name']
-#         course_code = request.form['course_code']
-#         meet_days = request.form['meet_days']
-#         meet_times = request.form['meet_times']
-#         group_size = request.form['group_size']
-#         work_style = request.form['work_style']
-#         goal = request.form['goal']
-
-#         # Insert the form data into the database
-#         db.insert_user_data(session['user_id'], name, course_code,
-#                             meet_days, meet_times, group_size, work_style, goal)
-
-#         # Call the notify_match function
-#         match_info = f"{name} is looking for a study group for {course_code}. They are available on {meet_days} at {meet_times} with a group size of {group_size}. Their preferred work style is {work_style} and their goal is {goal}."
-#         notify_match(updater, chat_id, match_info)
-
-#         # Redirect to the profile page
-#         return redirect(url_for('profile'))
-
-#     # If the request method is GET, display the profile page with the user's data
-#     else:
-#         user_data = db.get_user_data(session['user_id'])
-#         user_preferences = db.get_user_course_preferences(session['user_id'])
-#         return render_template('profile.html', user_data=user_data, user_preferences=user_preferences)
-
-####ATTEMPT 2########
 
 @app.route('/profile', methods=['GET', 'POST'])
 @login_required
 def profile():
     db = get_db()
-
-<<<<<<< Updated upstream
-=======
-    # Handle GET request to log the user out
-    if request.method == 'GET':
-        logout_user()
-        return redirect(url_for('homepage'))
-
-    # Handle the course code search and add functionality
->>>>>>> Stashed changes
     if request.method == 'POST' and 'search_course_code' in request.form:
         course_code = request.form['search_course_code']
         if db.get_course_by_code(course_code) is not None:
