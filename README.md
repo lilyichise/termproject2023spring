@@ -77,6 +77,6 @@ goal
 
   
   
-Credits
+## Credits
 
 The Study Group Finder web application was created by Matthew Syrigos and Lily Ichiseas a project for Problem Solving and Software Design.
