@@ -64,11 +64,25 @@ work_style
 goal
 
 # Results  
-  
+show pics of the homepage, login page, signup page, and profile page, while explaining the flow of the site (for example, start with the homepage, then say you click the login button to get to the login page <show login page> then click login to get the profile page <show profile page>). explain how far we functionally got and got to test
   
 # Project Evolution / Narrative    
-Overall, the application provides a simple and user-friendly interface for creating and joining study groups for courses, and demonstrates the use of Flask's authentication system and SQLite database. 
+Overall, the application provides a simple and user-friendly interface for creating and joining study groups for courses, and demonstrates the use of Flask's authentication system and SQLite database.  
   
+## Expectations vs Reality  
+photos of mockups, photo of homepage of actual site here; images didn't display, so for sake of time we kept the design basic  
+  
+## Problems along the way  
+user authentication (once logged in, you can't logout and sometimes it leads to an authentication error and doesn't allow you to access the profile) - when i run the code and click the login, sign up, or profile button on the profile, it takes me to a page that says "Unauthorized
+The server could not verify that you are authorized to access the URL requested. You either supplied the wrong credentials (e.g. a bad password), or your browser doesn't understand how to supply the credentials required.". My hypothesis is that it is returning this error to me because I already logged in once. That is why I created a logout option in the app.py (although it doesn't show), and a profile button to just directly access the profile if I am already logged in. But I can't access the profile even if I click directly on the button on the homepage that should access it. How do I fix this? >>the solution we found: use this method "current_user.is_authenticated:" instead of looking if the user is logged in; this method is better because of xyz.  
+  
+search/add course button error where unless it is already in the database it gives you an error that says there is no method to add course; the solution to this was >>HAVE TO COME BACK TO THIS AFTER SOLVING. 
+  
+google api authentication to integrate google logins and sign ups; we thought it would be easiest to manage if people just signed in through their google accounts, but it ended up making the site not work, so we aborted the mission after finding many different keys to make it work; although with more time, we can see ourselves actually taking time to implement it.  
+  
+## Limitations of Project  
+no logout button, don't have server so it doesnt keep user information after reloading, need enough people to make a match
+   
 ## Frontend Roadmap
 - [x] Set up a shared GitHub repository and invite the other team member.
 - [x] Install necessary tools and libraries for Flask web development.
