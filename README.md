@@ -8,7 +8,7 @@ Study Group Finder is a Python Flask web application that allows users to sign u
 
 To run the application, you will need to have Python 3 and Flask installed. You can install Flask using pip:
 
-# Copy code
+Copy code
 pip install flask
 You will also need to have SQLite installed on your machine. SQLite comes pre-installed on many systems, but if it is not installed on your system, you can download it from the official SQLite website.
 
