@@ -1,14 +1,14 @@
 # termproject2023spring
 
-Study Group Finder
+# Study Group Finder
 
 Study Group Finder is a Python Flask web application that allows users to sign up and create study groups for courses they are taking. It uses Flask's built-in authentication system and SQLite database to store user information and study group data.
 
-Installation
+# Installation
 
 To run the application, you will need to have Python 3 and Flask installed. You can install Flask using pip:
 
-Copy code
+# Copy code
 pip install flask
 You will also need to have SQLite installed on your machine. SQLite comes pre-installed on many systems, but if it is not installed on your system, you can download it from the official SQLite website.
 
@@ -26,7 +26,7 @@ Copy code
 flask run
 This will start the application on http://localhost:5000/.
 
-Routes
+# Routes
 The application has the following routes:
 
 / (homepage) - displays a list of users and courses
@@ -37,7 +37,7 @@ Dependencies
 Python 3
 Flask
 SQLite
-Database Design
+# Database Design
 
 The application uses an SQLite database to store user information and study group data. The database has the following tables:
 
