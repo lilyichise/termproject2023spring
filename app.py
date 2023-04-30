@@ -61,9 +61,12 @@ def get_db():
     return g.db
 
 ##########################################
+
+
 def get_db():
     db_path = 'study_groups.db'
     return StudyGroupDatabase(db_path)
+
 
 @app.teardown_appcontext
 def close_connection(exception):
@@ -84,7 +87,7 @@ def homepage():
 @app.route("/login", methods=['GET', 'POST'])
 def login():
     # check if the user is already logged in
-    if 'user_id' in session:
+    if current_user.is_authenticated:
         return redirect(url_for('profile'))
 
     # handle the login form submission
@@ -114,7 +117,7 @@ def login():
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     # check if the user is already logged in
-    if 'user_id' in session:
+    if current_user.is_authenticated:
         return redirect(url_for('profile'))
 
     # handle the signup form submission
@@ -165,7 +168,8 @@ def profile():
         db.insert_user_data(session['user_id'], name, course_code,
                             meet_days, meet_times, group_size, work_style, goal)
 
-        matching_users = db.find_matching_users(session['user_id'], course_code, meet_days, meet_times, group_size, work_style, goal)
+        matching_users = db.find_matching_users(
+            session['user_id'], course_code, meet_days, meet_times, group_size, work_style, goal)
 
         if len(matching_users) == 0:
             flash("No match found.")
@@ -185,7 +189,8 @@ def profile():
 @app.route('/logout')
 @login_required
 def logout():
-    logout_user()
+    # Clear the user's session
+    session.pop('username', None)
     return redirect(url_for('homepage'))
 
 

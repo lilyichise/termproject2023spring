@@ -35,6 +35,30 @@
             /* set a high z-index value */
         }
 
+        /* Style the profile button */
+        #profile-button {
+            display: block;
+            width: 150px;
+            height: 50px;
+            background-color: #4040ea;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+            margin-top: 50px;
+            line-height: 50px;
+        }
+
+        #profile-button:hover {
+            background-color: #3e8e41;
+        }
+
         /* Style the heading */
         h1 {
             color: black;
@@ -70,6 +94,7 @@
     <div class="button-container">
         <a href="/login" id="login-button">Login</a>
         <a href="/signup" id="sign-up-button">Sign Up</a>
+        <a href="/profile" id="profile-button">Profile</a>
     </div>
 </body>
 <style>
@@ -81,7 +106,8 @@
     }
 
     #login-button,
-    #sign-up-button {
+    #sign-up-button,
+    #profile-button {
         display: block;
         width: 150px;
         height: 50px;
@@ -102,7 +128,8 @@
 
 
     #login-button:hover,
-    #sign-up-button:hover {
+    #sign-up-button:hover,
+    #profile-button:hover {
         background-color: #3e8e41;
     }
 </style>
