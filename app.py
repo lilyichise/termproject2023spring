@@ -61,7 +61,9 @@ def get_db():
     return g.db
 
 ##########################################
-
+def get_db():
+    db_path = 'study_groups.db'
+    return StudyGroupDatabase(db_path)
 
 @app.teardown_appcontext
 def close_connection(exception):
@@ -246,3 +248,4 @@ def logout():
 
 if __name__ == '__main__':
     app.run(debug=True)
+    get_db()
