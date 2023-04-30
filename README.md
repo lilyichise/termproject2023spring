@@ -33,7 +33,7 @@ The application has the following routes:
 /login - displays a login form and allows users to log in  
 /signup - displays a signup form and allows users to create an account  
 /profile - displays the user's profile information and allows them to create a study group for a course they are taking  
-
+ 
 ## Dependencies
 Python 3  
 Flask  
