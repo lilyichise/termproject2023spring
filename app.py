@@ -1,4 +1,4 @@
-#######Our App###################
+####### Our App###################
 
 import os
 from flask_login import LoginManager, UserMixin, login_user, logout_user, current_user, login_required
@@ -9,13 +9,15 @@ import sqlite3
 app = Flask(__name__)
 app.secret_key = "1234python"
 
-#Puting a login manager to correct an error
+# Puting a login manager to correct an error
 login_manager = LoginManager()
 login_manager.init_app(app)
+
 
 class User(UserMixin):
     def __init__(self, user_id):
         self.id = user_id
+
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -27,8 +29,6 @@ def load_user(user_id):
     return None
 
 
-
-
 ######## FOR DEPLOYMENT ###########
 # db_url = os.environ.get('DATABASE_URL')
 
@@ -38,7 +38,6 @@ def load_user(user_id):
 # else:
 #     # Use a default database path if the environment variable is not set
 #     app.config['DATABASE'] = 'study_groups.db'
-
 # def get_db():
 #     """
 #     function to get database
@@ -47,10 +46,10 @@ def load_user(user_id):
 #         g.db = StudyGroupDatabase(app.config['DATABASE'])
 #     return g.db
 ###########################################
-
 #### FOR TESTING ####
 DATABASE = 'study_groups.db'
-#app.config['DATABASE'] = 'study_groups.db'
+# app.config['DATABASE'] = 'study_groups.db'
+
 
 def get_db():
     """
@@ -85,7 +84,7 @@ def homepage():
 def login():
     # check if the user is already logged in
     if 'user_id' in session:
-        return redirect(url_for('homepage'))
+        return redirect(url_for('profile'))
 
     # handle the login form submission
     if request.method == 'POST':
@@ -97,7 +96,7 @@ def login():
         user_id = db.check_user(email, password)
 
         if user_id:
-            # set the user_id session variable and redirect to the homepage
+            # set the user_id session variable and redirect to the profile
             user = User(user_id)
             login_user(user)
             return redirect(url_for('profile'))
@@ -115,21 +114,20 @@ def login():
 def signup():
     # check if the user is already logged in
     if 'user_id' in session:
-        return redirect(url_for('homepage'))
+        return redirect(url_for('profile'))
 
     # handle the signup form submission
     if request.method == 'POST':
-        name = request.form['name']
         email = request.form['email']
         password = request.form['password']
 
         # add the user to the database and set the user_id session variable
         db = get_db()
-        user_id = db.add_user(name, email, password)
+        user_id = db.add_user(email, password)
         session['user_id'] = user_id
 
-        # redirect to the homepage
-        return redirect(url_for('homepage'))
+        # redirect to the profile
+        return redirect(url_for('profile'))
 
     # display the signup form
     return render_template('signup.html')
@@ -195,6 +193,15 @@ def signup():
 def profile():
     db = get_db()
 
+<<<<<<< Updated upstream
+=======
+    # Handle GET request to log the user out
+    if request.method == 'GET':
+        logout_user()
+        return redirect(url_for('homepage'))
+
+    # Handle the course code search and add functionality
+>>>>>>> Stashed changes
     if request.method == 'POST' and 'search_course_code' in request.form:
         course_code = request.form['search_course_code']
         if db.get_course_by_code(course_code) is not None:

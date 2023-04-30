@@ -15,12 +15,12 @@ class StudyGroupDatabase:
         """This function closes the connection to the database"""
         self.connection.close()
 
-    def add_user(self, name, email, password):
+    def add_user(self, email, password):
         """This function adds a new user to the database"""
         cursor = self.connection.cursor()
 
         cursor.execute(
-            "INSERT INTO users (name, email, password) VALUES (?, ?, ?)", (name, email, password))
+            "INSERT INTO users (email, password) VALUES (?, ?)", (email, password))
 
         self.connection.commit()
 
@@ -69,7 +69,7 @@ class StudyGroupDatabase:
 
         courses = cursor.fetchall()
         return courses
-    
+
     def get_course_by_code(self, code):
         """This function retrieves a course from the database by its code"""
         cursor = self.connection.cursor()
@@ -78,7 +78,6 @@ class StudyGroupDatabase:
         course = cursor.fetchone()
 
         return course
-
 
     def get_user_course_preferences(self, user_id):
         cursor = self.connection.cursor()
@@ -96,6 +95,17 @@ class StudyGroupDatabase:
         all_preferences = cursor.fetchall()
 
         return all_preferences
+
+    def get_user_data(self, user_id):
+        """This function retrieves a user's data from the database"""
+        cursor = self.connection.cursor()
+
+        cursor.execute("""
+            SELECT user_id, email, password
+            FROM users
+            WHERE user_id=?
+        """, (user_id,))
+        user_data = cursor.fetchone
 
 
 def creating_database():
@@ -149,8 +159,11 @@ def delete_users_table():
     connection.close()
 
 
+<<<<<<< Updated upstream
 
 
+=======
+>>>>>>> Stashed changes
 if __name__ == "__main__":
     delete_users_table()
 

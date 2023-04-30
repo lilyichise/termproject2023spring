@@ -3,9 +3,7 @@ OUR DATABASE DESIGN
 Tables:
 1. Users
 user_id (primary key)
-name
 email
-phone_number
 password (encrypted)
 
 2. Courses
@@ -36,9 +34,7 @@ def creating_database():
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS users (
         user_id INTEGER PRIMARY KEY,
-        name TEXT NOT NULL,
         email TEXT UNIQUE NOT NULL,
-        phone_number TEXT,
         password TEXT NOT NULL
     )
     """)
@@ -73,7 +69,7 @@ def creating_database():
     existing_user = cursor.fetchone()
 
     if not existing_user:
-        cursor.execute("INSERT INTO users (name, email, password) VALUES (?,?,?)",
+        cursor.execute("INSERT INTO users (email, password) VALUES (?,?)",
                        (username_to_insert, 'user1@example.com', 'password1'))
         connection.commit()
 
@@ -89,7 +85,6 @@ def main():
 
 if __name__ == '__main__':
     main()
-import sqlite3
 
 
 def creating_database():
@@ -137,7 +132,7 @@ def creating_database():
     existing_user = cursor.fetchone()
 
     if not existing_user:
-        cursor.execute("INSERT INTO users (name, email, password) VALUES (?,?,?)",
+        cursor.execute("INSERT INTO users (email, password) VALUES (?,?)",
                        (username_to_insert, 'user1@example.com', 'password1'))
         connection.commit()
 
