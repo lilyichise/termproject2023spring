@@ -29,7 +29,7 @@ def load_user(user_id):
         return User(user_id)
     return None
 
-
+#Didn't end up using the following commented form.
 ######## FOR DEPLOYMENT ###########
 # db_url = os.environ.get('DATABASE_URL')
 
@@ -48,6 +48,7 @@ def load_user(user_id):
 #     return g.db
 ###########################################
 #### FOR TESTING ####
+
 DATABASE = 'study_groups.db'
 # app.config['DATABASE'] = 'study_groups.db'
 
@@ -61,12 +62,9 @@ def get_db():
     return g.db
 
 ##########################################
-
-
 def get_db():
     db_path = 'study_groups.db'
     return StudyGroupDatabase(db_path)
-
 
 @app.teardown_appcontext
 def close_connection(exception):
@@ -74,7 +72,7 @@ def close_connection(exception):
     if db is not None:
         db.close()
 
-
+# Homepage route
 @app.route('/')
 def homepage():
     db = get_db()
@@ -82,55 +80,41 @@ def homepage():
     courses = db.search_courses('')
     return render_template('homepage.html', users=users, courses=courses)
 
-
-# Route for the login page
+#Login Page Route
 @app.route("/login", methods=['GET', 'POST'])
 def login():
-    # check if the user is already logged in
-    if current_user.is_authenticated:
+    if 'user_id' in session:
         return redirect(url_for('profile'))
-
-    # handle the login form submission
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']
 
-        # check if the user exists in the database
         db = get_db()
         user_id = db.check_user(email, password)
 
         if user_id:
-            # set the user_id session variable and redirect to the profile
             user = User(user_id)
             login_user(user)
             return redirect(url_for('profile'))
         else:
-            # if the user does not exist, display an error message
             error = "Invalid email or password. Please try again."
             return render_template('login.html', error=error)
 
-    # display the login form
     return render_template('login.html')
 
 
-# create the route for the signup page
+# signup page route
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
-    # check if the user is already logged in
-    if current_user.is_authenticated:
+    if 'user_id' in session:
         return redirect(url_for('profile'))
-
-    # handle the signup form submission
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']
 
-        # add the user to the database and set the user_id session variable
         db = get_db()
         user_id = db.add_user(email, password)
         session['user_id'] = user_id
-
-        # redirect to the profile
         return redirect(url_for('profile'))
 
     # display the signup form
@@ -168,8 +152,7 @@ def profile():
         db.insert_user_data(session['user_id'], name, course_code,
                             meet_days, meet_times, group_size, work_style, goal)
 
-        matching_users = db.find_matching_users(
-            session['user_id'], course_code, meet_days, meet_times, group_size, work_style, goal)
+        matching_users = db.find_matching_users(session['user_id'], course_code, meet_days, meet_times, group_size, work_style, goal)
 
         if len(matching_users) == 0:
             flash("No match found.")
@@ -189,8 +172,7 @@ def profile():
 @app.route('/logout')
 @login_required
 def logout():
-    # Clear the user's session
-    session.pop('username', None)
+    logout_user()
     return redirect(url_for('homepage'))
 
 

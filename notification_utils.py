@@ -1,5 +1,13 @@
 #####notification_utils.py file########
+#Notifying the Users when a match is found
 import requests
+
+def notify_match(chat_id, match_info):
+    """Send a notification about a found match to a specific user."""
+    subject = "Match found!"
+    message = f"A match has been found for you: {match_info}"
+    recipient = "recipient_email_address@example.com"
+    send_email(subject, message, recipient)
 
 ###ALTERNATIVE 1#########
 # def send_email(subject, message, recipient):
@@ -32,13 +40,5 @@ def send_email(subject, message, recipient):
 			"subject": subject,
 			"text": message})
 
-
-def notify_match(chat_id, match_info):
-    """Send a notification about a found match to a specific user."""
-    subject = "Match found!"
-    message = f"A match has been found for you: {match_info}"
-    recipient = "recipient_email_address@example.com"
-    send_email(subject, message, recipient)
-
-#test funciton
-send_email("test","test", "matthewsyrigos@gmail.com")
+#test funciton#
+#send_email("test","test", "matthewsyrigos@gmail.com")
