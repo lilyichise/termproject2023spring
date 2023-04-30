@@ -26,17 +26,19 @@ Copy code
 flask run
 This will start the application on http://localhost:5000/.
 
-# Routes
+## Routes
 The application has the following routes:
 
 / (homepage) - displays a list of users and courses  
 /login - displays a login form and allows users to log in  
 /signup - displays a signup form and allows users to create an account  
 /profile - displays the user's profile information and allows them to create a study group for a course they are taking  
-Dependencies
-Python 3
-Flask
-SQLite
+
+## Dependencies
+Python 3  
+Flask  
+SQLite  
+
 # Database Design
 
 The application uses an SQLite database to store user information and study group data. The database has the following tables:
