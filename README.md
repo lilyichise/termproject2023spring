@@ -106,21 +106,25 @@ As we tried to implement the images and buttons that we designed, we had to figu
   
 ## Problems along the way  
 Of course, what is a good journey without some obstacles. We ran into many, some of which are:  
-- User Authentication - Once logged in, you can't logout, and sometimes it leads to an authentication error and doesn't allow you to access the profile. When we ran the code and clicked the login, sign up, or profile buttons on the profile, it took us to a page that says "Unauthorized
+- **User Authentication** - Once logged in, you can't logout, and sometimes it leads to an authentication error and doesn't allow you to access the profile. When we ran the code and clicked the login, sign up, or profile buttons on the profile, it took us to a page that says "Unauthorized
 The server could not verify that you are authorized to access the URL requested. You either supplied the wrong credentials (e.g. a bad password), or your browser doesn't understand how to supply the credentials required." Our hypothesis is that it is returning this error to us because we already logged in once. That is why we created a logout option in the app.py (although it doesn't show for some reason), and a profile button to just directly access the profile if we are already logged in. But we can't access the profile even if we click directly on the button on the homepage that should access it.  
   
 How do we fix this?  
 >>The solution we found: use this method "current_user.is_authenticated:" instead of looking if the user is logged in; this method is better because it is more reliable when it comes to determining whether a user has been authenticated with the application's built-in authentication system. "current_user.is_authenticated" is a method from Flask-Login that checks whether the user has been authenticated and logged in to the application, while "if 'user_id' in session:" checks whether the "user_id" is present in the Flask session, but not necessarily whether they have logged in using the application's authentication system.  
   
-- Search/Add Course Button Error - Unless the course code is already in the database, it gives you an error that says there is no method to add the course.  
+- **Search/Add Course Button Error** - Unless the course code is already in the database, it gives you an error that says there is no method to add the course.  
   
 How do we fix this?  
 >>The solution to this was>> HAVE TO COME BACK TO THIS AFTER SOLVING. 
   
-- Google API Authentication - We tried to integrate Google logins and sign ups because we thought it would be easiest to manage if people just signed in through their google accounts, but it ended up making the site not work, so we aborted the mission after many attempts and finding many different keys of various names to make it work. With more time though, we can see ourselves actually implementing it.  
+- **Google API Authentication** - We tried to integrate Google logins and sign ups because we thought it would be easiest to manage if people just signed in through their google accounts, but it ended up making the site not work, so we aborted the mission after many attempts and finding many different keys of various names to make it work. With more time though, we can see ourselves actually implementing it.  
   
 ## Limitations of Project  
-no logout button, don't have server so it doesnt keep user information after reloading, need enough people to make a match
+The biggest limitation of our project was time. Our project timeline was just like the picture Prof. Li showed us in class; we planned a timeline for 3 weeks, and we ended up getting to everything in the last week. If we had more time, some of the things that we would look into adding and improving are as follows (ordered according to priority):  
+- **User Account Storage** - a HUGE problem we had was that the application would not recall account information once a session was closed and run again. In one session, the user would create an account and their information would go into the database, but if you quit out of that session and reran the application, your account information would be cleared and you would have to create an account again. Some theories that we have are that the session expired and the login credentials became invalid, or that there is an issue with the databse (such as data corruption or connection problems), that are causing the application to lose account data. We would want to look into this immediately.  
+- **Creating a Logout Button** - there is currently no option to logout and sign in to a new account, so once a user logs in, they are forever logged in. We would like to make it so that users can logout and access another account if needed.
+-   
+The one other major limitation of our project is that we need enough users and their data in order to be able to make the first match, since the matching requires that users share commonalities in their preferences.
    
 ## Frontend Roadmap
 - [x] Set up a shared GitHub repository and invite the other team member.
