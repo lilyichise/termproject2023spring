@@ -68,7 +68,7 @@ This is our homepage:
 <div style="display:flex;justify-content:center;">
   <img src="project_images/homepage.png" alt="website homepage" title="Website Homepage" style="max-width:100%;">
 </div>  
-These are out login and signup pages:  
+These are our login and signup pages:  
 <div style="display:flex;justify-content:center;">
   <img src="project_images/login.png" alt="website login" title="Website Login" style="max-width:100%;">
   <img src="project_images/signup.png" alt="website signup" title="Website Signup" style="max-width:100%;">
