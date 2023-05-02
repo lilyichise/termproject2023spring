@@ -74,7 +74,7 @@ Overall, the application provides a simple and user-friendly interface for creat
   
 ## Expectations vs Reality  
 photos of mockups, photo of homepage of actual site here; images didn't display, so for sake of time we kept the design basic
-<img src="project_images/studymainpage.png" alt="mockup website homepage" title="Mockup Website Homepage" height="500">
+<img src="project_images/studymainpage.png" alt="mockup website homepage" title="Mockup Website Homepage" style="max-width:75%;">
 <img src="project_images/studyloginpage.png" alt="mockup website login" title="Mockup Website Login" height="500">
 <img src="project_images/expectationsvsreality.png" alt="expectations versus reality meme" title="Project Expectations vs Reality" height="500"> 
   
