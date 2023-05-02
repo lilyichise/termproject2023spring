@@ -93,9 +93,9 @@ When working on the frontend, we went in understanding that we are total newbs, 
 <div style="margin: 0 auto;">
   <div style="display:flex;justify-content:center;">
     <img src="project_images/studymainpage.png" alt="mockup website homepage" title="Mockup Website Homepage" height="400" style="max-width:100%;">
-  </div>  
-<p>&nbsp;</p>  
-When you click on the "Login" or "Create Account" button (which are created as clickable images) they redirect to this page where you can simply login with your Google account. Our thinking was that this will not only be a way to collect user data in a consolidated and convenient way, but it will also be convenient for the end user because they won't have to keep track of any more passwords than they already have.   
+  </div>    
+When you click on the "Login" or "Create Account" button (which are created as clickable images) they redirect to this page where you can simply login with your Google account. Our thinking was that this will not only be a way to collect user data in a consolidated and convenient way, but it will also be convenient for the end user because they won't have to keep track of any more passwords than they already have.  
+<p>&nbsp;</p>    
   <div style="display:flex;justify-content:center;">
     <img src="project_images/studyloginpage.png" alt="mockup website login" title="Mockup Website Login" height="400" style="max-width:100%;">
   </div>  
@@ -103,7 +103,7 @@ As we tried to implement the images and buttons that we designed, we had to figu
   <div style="display:flex;justify-content:center;">
     <img src="project_images/expectationsvsreality.png" alt="expectations versus reality meme" title="Project Expectations vs Reality" height="500" style="max-width:100%;">
   </div>  
-</div>
+</div>  
   
 ## Problems along the way  
 Of course, what is a good journey without some obstacles. We ran into many, some of which are:  
