@@ -79,7 +79,7 @@ These are our login and signup pages:
   <img src="project_images/signup.png" alt="website signup" title="Website Signup" style="max-width:100%;">
 </div>  
 Once a user logs in or signs up, they are redirected to the profile page where they can enter their name, course preferences, and other such information that will help us match them with an ideal study buddy. If they are already logged in and authenticated, clicking on any of the buttons on the home page will take them directly to the profile page as well.  
-  
+    
 This is the profile page:   
 <div style="display:flex;justify-content:center;">
   <img src="project_images/profile.png" alt="website profile page" title="Website Profile Page" height="400" style="max-width:100%;">
