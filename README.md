@@ -64,17 +64,20 @@ work_style
 goal
 
 # Results  
+This is our homepage:  
 <div style="display:flex;justify-content:center;">
   <img src="project_images/homepage.png" alt="website homepage" title="Website Homepage" style="max-width:100%;">
-</div>
+</div>  
+These are out login and signup pages:  
 <div style="display:flex;justify-content:center;">
   <img src="project_images/login.png" alt="website login" title="Website Login" style="max-width:100%;">
   <img src="project_images/signup.png" alt="website signup" title="Website Signup" style="max-width:100%;">
-</div>
+</div>  
+This is the profile page you arrive at once you login or signup. If you are already signed in, clicking on any of the buttons on the homepage will take you directly to the profile page:   
 <div style="display:flex;justify-content:center;">
   <img src="project_images/profile.png" alt="website profile page" title="Website Profile Page" height="400" style="max-width:100%;">
 </div>
-show pics of the homepage, login page, signup page, and profile page, while explaining the flow of the site (for example, start with the homepage, then say you click the login button to get to the login page <show login page> then click login to get the profile page <show profile page>). explain how far we functionally got and got to test
+explain how far we functionally got and got to test
   
 # Project Evolution / Narrative    
 Overall, the application provides a simple and user-friendly interface for creating and joining study groups for courses, and demonstrates the use of Flask's authentication system and SQLite database.  
