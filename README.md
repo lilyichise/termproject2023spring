@@ -84,9 +84,8 @@ This is the profile page:
 <div style="display:flex;justify-content:center;">
   <img src="project_images/profile.png" alt="website profile page" title="Website Profile Page" height="400" style="max-width:100%;">
 </div>
-explain how far we functionally got and got to test
   
-# Project Evolution / Narrative    
+# Project Evolution    
 Overall, the application provides a simple and user-friendly interface for creating and joining study groups for courses, and demonstrates the use of Flask's authentication system and SQLite database.  
   
 ## Expectations vs Reality  
