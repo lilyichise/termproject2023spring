@@ -68,11 +68,11 @@ goal
   <img src="project_images/homepage.png" alt="website homepage" title="Website Homepage" style="max-width:100%;">
 </div>
 <div style="display:flex;justify-content:center;">
-  <img src="project_images/login.png" alt="website login" title="Website Login" style="max-width:50%;">
-  <img src="project_images/signup.png" alt="website signup" title="Website Signup" style="max-width:50%;">
+  <img src="project_images/login.png" alt="website login" title="Website Login" style="max-width:100%;">
+  <img src="project_images/signup.png" alt="website signup" title="Website Signup" style="max-width:100%;">
 </div>
 <div style="display:flex;justify-content:center;">
-  <img src="project_images/profile.png" alt="website profile page" title="Website Profile Page" style="max-width:100%;">
+  <img src="project_images/profile.png" alt="website profile page" title="Website Profile Page" height="400" style="max-width:100%;">
 </div>
 show pics of the homepage, login page, signup page, and profile page, while explaining the flow of the site (for example, start with the homepage, then say you click the login button to get to the login page <show login page> then click login to get the profile page <show profile page>). explain how far we functionally got and got to test
   
@@ -82,13 +82,13 @@ Overall, the application provides a simple and user-friendly interface for creat
 ## Expectations vs Reality  
 photos of mockups, photo of homepage of actual site here; images didn't display, so for sake of time we kept the design basic  
 <div style="display:flex;justify-content:center;">
-  <img src="project_images/studymainpage.png" alt="mockup website homepage" title="Mockup Website Homepage" style="max-width:50%;">
+  <img src="project_images/studymainpage.png" alt="mockup website homepage" title="Mockup Website Homepage" height="400" style="max-width:100%;">
 </div>
 <div style="display:flex;justify-content:center;">
-  <img src="project_images/studyloginpage.png" alt="mockup website login" title="Mockup Website Login" style="max-width:50%;">
+  <img src="project_images/studyloginpage.png" alt="mockup website login" title="Mockup Website Login" height="400" style="max-width:100%;">
 </div>
 <div style="display:flex;justify-content:center;">
-  <img src="project_images/expectationsvsreality.png" alt="expectations versus reality meme" title="Project Expectations vs Reality" height="300">
+  <img src="project_images/expectationsvsreality.png" alt="expectations versus reality meme" title="Project Expectations vs Reality" height="300" style="max-width:100%;">
 </div>
   
 ## Problems along the way  
