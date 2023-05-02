@@ -88,7 +88,7 @@ photos of mockups, photo of homepage of actual site here; images didn't display,
   <img src="project_images/studyloginpage.png" alt="mockup website login" title="Mockup Website Login" style="max-width:50%;">
 </div>
 <div style="display:flex;justify-content:center;">
-  <img src="project_images/expectationsvsreality.png" alt="expectations versus reality meme" title="Project Expectations vs Reality" style="max-width:30%;">
+  <img src="project_images/expectationsvsreality.png" alt="expectations versus reality meme" title="Project Expectations vs Reality" height="300">
 </div>
   
 ## Problems along the way  
