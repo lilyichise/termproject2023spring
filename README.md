@@ -72,14 +72,14 @@ This is our homepage:
   <img src="project_images/homepage.png" alt="website homepage" title="Website Homepage" style="max-width:100%;">
 </div>  
 The buttons change colors when you hover over them. We decided to go with an incredibly simple interface so that there is no way for users to get confused on where to go. This straightforward design allows for users to get where they need to go immediately; when a user clicks on the "Login" or "Sign Up" button, they are immediately redirected to the respective pages.  
-   
+&nbsp;  
 These are our login and signup pages:  
 <div style="display:flex;justify-content:center;">
   <img src="project_images/login.png" alt="website login" title="Website Login" style="max-width:100%;">
   <img src="project_images/signup.png" alt="website signup" title="Website Signup" style="max-width:100%;">
 </div>  
 Once a user logs in or signs up, they are redirected to the profile page where they can enter their name, course preferences, and other such information that will help us match them with an ideal study buddy. If they are already logged in and authenticated, clicking on any of the buttons on the home page will take them directly to the profile page as well.  
-    
+&nbsp;  
 This is the profile page:   
 <div style="display:flex;justify-content:center;">
   <img src="project_images/profile.png" alt="website profile page" title="Website Profile Page" height="400" style="max-width:100%;">
