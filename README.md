@@ -72,7 +72,7 @@ This is our homepage:
   <img src="project_images/homepage.png" alt="website homepage" title="Website Homepage" style="max-width:100%;">
 </div>  
 The buttons change colors when you hover over them. We decided to go with an incredibly simple interface so that there is no way for users to get confused on where to go. This straightforward design allows for users to get where they need to go immediately; when a user clicks on the "Login" or "Sign Up" button, they are immediately redirected to the respective pages.  
-  
+   
 These are our login and signup pages:  
 <div style="display:flex;justify-content:center;">
   <img src="project_images/login.png" alt="website login" title="Website Login" style="max-width:100%;">
