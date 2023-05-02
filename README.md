@@ -82,13 +82,13 @@ Overall, the application provides a simple and user-friendly interface for creat
 ## Expectations vs Reality  
 photos of mockups, photo of homepage of actual site here; images didn't display, so for sake of time we kept the design basic  
 <div style="display:flex;justify-content:center;">
-  <img src="project_images/studymainpage.png" alt="mockup website homepage" title="Mockup Website Homepage" style="max-width:70%;">
+  <img src="project_images/studymainpage.png" alt="mockup website homepage" title="Mockup Website Homepage" style="max-width:50%;">
 </div>
 <div style="display:flex;justify-content:center;">
-  <img src="project_images/studyloginpage.png" alt="mockup website login" title="Mockup Website Login" style="max-width:100%;">
+  <img src="project_images/studyloginpage.png" alt="mockup website login" title="Mockup Website Login" style="max-width:50%;">
 </div>
 <div style="display:flex;justify-content:center;">
-  <img src="project_images/expectationsvsreality.png" alt="expectations versus reality meme" title="Project Expectations vs Reality" style="max-width:100%;">
+  <img src="project_images/expectationsvsreality.png" alt="expectations versus reality meme" title="Project Expectations vs Reality" style="max-width:30%;">
 </div>
   
 ## Problems along the way  
