@@ -124,7 +124,8 @@ The biggest limitation of our project was time. Our project timeline was just li
 - **User Account Storage** - a HUGE problem we had was that the application would not recall account information once a session was closed and run again. In one session, the user would create an account and their information would go into the database, but if you quit out of that session and reran the application, your account information would be cleared and you would have to create an account again. Some theories that we have are that the session expired and the login credentials became invalid, or that there is an issue with the databse (such as data corruption or connection problems), that are causing the application to lose account data. We would want to look into this immediately.  
 - **Creating a Logout Button** - there is currently no option to logout and sign in to a new account, so once a user logs in, they are forever logged in. We would like to make it so that users can logout and access another account if needed.
 - **Integrating Google Authentication** - this will allow for an even simpler experience for users to make an account or login, and would also allow us to access certain information that we may want to user for further development of the service.  
-- **Redesigning the Interface** - we would want to actually manifest our original mockup vision to make it look more professional and appealing to end users.    
+- **Redesigning the Interface** - we would want to actually manifest our original mockup vision to make it look more professional and appealing to end users.  
+    
 The one other major limitation of our project is that we need enough users and their data in order to be able to make the first match, since the matching requires that users share commonalities in their preferences.
    
 ## Frontend Roadmap
