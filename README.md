@@ -64,9 +64,9 @@ work_style
 goal
 
 # Results  
-<img src="project_images/homepage.png" alt="website homepage" title="Website Homepage" height="500">
+<img src="project_images/homepage.png" alt="website homepage" title="Website Homepage" style="max-width:75%;">
 <img src="project_images/login.png" alt="website login" title="Website Login"> <img src="project_images/signup.png" alt="website signup" title="Website Signup">
-<img src="project_images/profile.png" alt="website profile page" title="Website Profile Page" height="500">
+<img src="project_images/profile.png" alt="website profile page" title="Website Profile Page" style="max-width:75%;">
 show pics of the homepage, login page, signup page, and profile page, while explaining the flow of the site (for example, start with the homepage, then say you click the login button to get to the login page <show login page> then click login to get the profile page <show profile page>). explain how far we functionally got and got to test
   
 # Project Evolution / Narrative    
@@ -75,8 +75,8 @@ Overall, the application provides a simple and user-friendly interface for creat
 ## Expectations vs Reality  
 photos of mockups, photo of homepage of actual site here; images didn't display, so for sake of time we kept the design basic
 <img src="project_images/studymainpage.png" alt="mockup website homepage" title="Mockup Website Homepage" style="max-width:75%;">
-<img src="project_images/studyloginpage.png" alt="mockup website login" title="Mockup Website Login" height="500">
-<img src="project_images/expectationsvsreality.png" alt="expectations versus reality meme" title="Project Expectations vs Reality" height="500"> 
+<img src="project_images/studyloginpage.png" alt="mockup website login" title="Mockup Website Login" style="max-width:75%;">
+<img src="project_images/expectationsvsreality.png" alt="expectations versus reality meme" title="Project Expectations vs Reality" style="max-width:75%;"> 
   
 ## Problems along the way  
 user authentication (once logged in, you can't logout and sometimes it leads to an authentication error and doesn't allow you to access the profile) - when i run the code and click the login, sign up, or profile button on the profile, it takes me to a page that says "Unauthorized
