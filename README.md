@@ -89,11 +89,12 @@ This is the profile page:
 Overall, the application provides a simple and user-friendly interface for creating and joining study groups for courses, and demonstrates the use of Flask's authentication system and SQLite database.  
   
 ## Expectations vs Reality  
-photos of mockups, photo of homepage of actual site here; images didn't display, so for sake of time we kept the design basic  
+When working on the frontend, we went in understanding that we are total newbs, so we went in with the intention of making a very minimal and simple design for our web application. Although, with simplicity in mind, we still wanted to make it look appealing to users. These are photos of the mockups we designed:    
 <div style="margin: 0 auto;">
   <div style="display:flex;justify-content:center;">
     <img src="project_images/studymainpage.png" alt="mockup website homepage" title="Mockup Website Homepage" height="400" style="max-width:100%;">
   </div>  
+, photo of homepage of actual site here; images didn't display, so for sake of time we kept the design basic
   <div style="display:flex;justify-content:center;">
     <img src="project_images/studyloginpage.png" alt="mockup website login" title="Mockup Website Login" height="400" style="max-width:100%;">
   </div>  
