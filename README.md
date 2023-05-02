@@ -95,11 +95,10 @@ When working on the frontend, we went in understanding that we are total newbs, 
     <img src="project_images/studymainpage.png" alt="mockup website homepage" title="Mockup Website Homepage" height="400" style="max-width:100%;">
   </div>  
 <p>&nbsp;</p>  
-When you click on the "Login" or "Create Account" button (which are created as clickable images) they redirect to this page where you can simply login with your Google account. Our thinking was that this will not only be a way to collect user data in a consolidated and convenient way, but it will also be convenient for the end user because they won't have to keep track of any more passwords than they already have.  
+When you click on the "Login" or "Create Account" button (which are created as clickable images) they redirect to this page where you can simply login with your Google account. Our thinking was that this will not only be a way to collect user data in a consolidated and convenient way, but it will also be convenient for the end user because they won't have to keep track of any more passwords than they already have.   
   <div style="display:flex;justify-content:center;">
     <img src="project_images/studyloginpage.png" alt="mockup website login" title="Mockup Website Login" height="400" style="max-width:100%;">
   </div>  
-<p>&nbsp;</p>  
 As we tried to implement the images and buttons that we designed, we had to figure out a way to put images on top of each other, how to get the button into a very specific part of the page, and how to make images clickable. We were mostly concerned about that part and did extensive research there, but before that, our images didn't even display, so for sake of time, we had to abort the mission and make the design even more simple to meet the MVP before the deadline.   
   <div style="display:flex;justify-content:center;">
     <img src="project_images/expectationsvsreality.png" alt="expectations versus reality meme" title="Project Expectations vs Reality" height="500" style="max-width:100%;">
