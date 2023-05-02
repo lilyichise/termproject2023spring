@@ -114,7 +114,7 @@ How do we fix this?
   
 - **Search/Add Course Button Error** - Unless the course code is already in the database, it gives you an error that says there is no method to add the course.  
   
-How do we fix this?  
+**How do we fix this?**  
 >>The solution to this was>> HAVE TO COME BACK TO THIS AFTER SOLVING. 
   
 - **Google API Authentication** - We tried to integrate Google logins and sign ups because we thought it would be easiest to manage if people just signed in through their google accounts, but it ended up making the site not work, so we aborted the mission after many attempts and finding many different keys of various names to make it work. With more time though, we can see ourselves actually implementing it.  
