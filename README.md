@@ -64,7 +64,7 @@ work_style
 goal
 
 # Results  
-<img src="project_images/homepage.png" alt="website homepage" title="Website Homepage">
+<img src="project_images/homepage.png" alt="website homepage" title="Website Homepage" height="500">
 <img src="project_images/login.png" alt="website login" title="Website Login">
 <img src="project_images/signup.png" alt="website signup" title="Website Signup">
 <img src="project_images/profile.png" alt="website profile page" title="Website Profile Page">
